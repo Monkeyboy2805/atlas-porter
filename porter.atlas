@@ -1,4 +1,4 @@
-{set; porterver; Powered by YinYang's Porter Atlas Project version 2.7.0}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 2.7.1}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
 {set; subject2; {replace; {get; subject2}; a-level-}}

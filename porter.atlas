@@ -1,0 +1,13 @@
+{set; porterver; Powered by YinYang's Porter Atlas Project version 2.7.0}
+{set; subject; {channel.name}}
+{set; subject2; {replace; {get; subject}; gcse-;}}
+{set; subject2; {replace; {get; subject2}; a-level-}}
+{set; avail; yes}
+{if;{length; {role.mention; Head of {get; subject2}}};==;50; {user.mention} Unfortunately there are no helper roles available for this channel {set; avail; no}
+{get; porterver}}
+{if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE}}
+{if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level}}
+{if;{get;type};==;GCSE; {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}
+{if;{get;type};==;A-level; {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}
+{if;{get;avail};==;yes;{user.mention} a helper will be available shortly.
+>>>{get; porterver}<<<}

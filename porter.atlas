@@ -1,9 +1,10 @@
-{set; porterver; Powered by YinYang's Porter Atlas Project version 3.0.0ALPHA3}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 3.0.0ALPHA4}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
 {set; subject2; {replace; {get; subject2}; a-level-}}
 {get; subject2}
+{set; pingtext;}
 {set; avail; yes}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE}}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level}}
@@ -16,16 +17,17 @@
 {if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C}}
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
 {get; unavail}
-{if; {get; unavail}; == ; 0; {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper} {user.mention} {get;success}}
-{if; {get; unavail}; ==; 0A; {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}
-{if; {get; unavail}; ==; 0B; {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}}
-{if; {get; unavail}; == ; 0C; {role.mention; Head of {get;subject2}} {role.mention; {get;subject2} GCSE Helper}}
-{if; {get; unavail}; == ; 0AB; {role.mention; {get; subject2} GCSE Helper}}
-{if; {get; unavail}; == ; 0BC; {role.mention; Head of {get; subject2}}}
+{if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper} {user.mention} {get;success}}}
+{if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
+{if; {get; unavail}; ==; 0B; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}}}
+{if; {get; unavail}; == ; 0C; {set;pingtext; {get;pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get;subject2} GCSE Helper}}}
+{if; {get; unavail}; == ; 0AB; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} GCSE Helper}}}
+{if; {get; unavail}; == ; 0BC; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}}}}
 {if; {get; unavail}; == ; 0ABC; {set; avail; no}}
-{if; {get; unavail}; == ; 1; {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}
-{if; {get; unavail}; == ; 1A; {role.mention; {get; subject2} Helper}}
-{if; {get; unavail}; ==; 1B; {role.mention; Head of {get; subject2}}}
+{if; {get; unavail}; == ; 1; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}}
+{if; {get; unavail}; == ; 1A; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} Helper}}}
+{if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}}
 {if; {get; unavail}; == ; 1AB; {set; avail; no}}
+{if; {get; avail}; == ; yes; {get;pingtext}}
 {if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel}
 >>>{get; porterver}<<<

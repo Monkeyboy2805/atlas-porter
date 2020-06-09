@@ -1,13 +1,22 @@
-{set; porterver; Powered by YinYang's Porter Atlas Project version 2.7.1}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 3.0.0ALPHA1}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
 {set; subject2; {replace; {get; subject2}; a-level-}}
 {set; avail; yes}
-{if;{length; {role.mention; Head of {get; subject2}}};==;50; {user.mention} Unfortunately there are no helper roles available for this channel {set; avail; no}
-{get; porterver}}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE}}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level}}
-{if;{get;type};==;GCSE; {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}
-{if;{get;type};==;A-level; {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}
-{if;{get;avail};==;yes;{user.mention} a helper will be available shortly.
->>>{get; porterver}<<<}
+{if; {get;type}; == ; GCSE; {set; unavail; 0}}
+{if; {get;type}; == ; A-level; {set; unavail; 1}}
+{if; {role.mention; {Head of {get; subject}}}; == ;{l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A}}
+{if; {role.mention; {get; subject} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B}}
+{set; GPING; 0}
+{if; {get;type}; == ; GCSE; {set; GPING; 1}}
+{if; {role.mention; {get; subject} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C}}
+{if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
+{get; unavail}
+{if; {get; unavail}; ==; 0A; {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}
+{if; {get; unavail}; == ; 0ABC; {set; avail; no}}
+{if; {get; unavail}; == ; 1ABC; {set; avail; no}}
+{if;{get;avail};==;yes;{user.mention} a helper will be available shortly.}
+{if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel}
+>>>{get; porterver}<<<

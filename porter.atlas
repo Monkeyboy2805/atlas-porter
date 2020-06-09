@@ -1,4 +1,4 @@
-{set; porterver; Powered by YinYang's Porter Atlas Project version 3.0.0BETA1}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 3.1.0ALPHA1}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -16,9 +16,9 @@
 {if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C}}
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
 {if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
-{if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
+{if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}} {channel.send; WARNING: The role "Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; ==; 0B; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}}}
-{if; {get; unavail}; == ; 0C; {set;pingtext; {get;pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get;subject2} GCSE Helper}}}
+{if; {get; unavail}; == ; 0C; {set;pingtext; {get;pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get;subject2} Helper}}}
 {if; {get; unavail}; == ; 0AB; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} GCSE Helper}}}
 {if; {get; unavail}; == ; 0BC; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}}}}
 {if; {get; unavail}; == ; 0ABC; {set; avail; no}}

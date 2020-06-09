@@ -1,14 +1,15 @@
-{set; porterver; Powered by YinYang's Porter Atlas Project version 3.1.0ALPHA4}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 3.1.0ALPHA5}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
 {set; subject2; {replace; {get; subject2}; a-level-}}
 {set; pingtext;}
 {set; avail; yes}
+{set; validtype; false}
 {set; nogenstr; WARNING: The role "}
-{if; {length; {get; subject2}}; == ; {length; {get; subject}}; {set; avail; no}}
-{if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE}}
-{if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level}}
+{if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE} {set; validtype; true}}
+{if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level} {set; validtype; true}}
+{if; {get;validtype}; == ; false; {set; avail; no}}
 {if; {get;type}; == ; GCSE; {set; unavail; 0}}
 {if; {get;type}; == ; A-level; {set; unavail; 1}}
 {if; {role.mention; Head of {get; subject2}}; == ;{l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A}}

@@ -23,6 +23,6 @@
 {if; {get; unavail}; == ; 0AB; {role.mention; {get; subject2} GCSE Helper}}
 {if; {get; unavail}; == ; 0BC; {role.mention; Head of {get; subject2}}}
 {if; {get; unavail}; == ; 0ABC; {set; avail; no}}
-{if; {get; unavail}; == ; 1ABC; {set; avail; no}}
+{if; {get; unavail}; == ; 1AB; {set; avail; no}}
 {if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel}
 >>>{get; porterver}<<<

@@ -1,4 +1,5 @@
-{set; porterver; Powered by YinYang's Porter Atlas Project version 3.1.0ALPHA5}
+{if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
+{set; porterver; Powered by YinYang's Porter Atlas Project version 3.2.0BETA1}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -33,3 +34,7 @@
 {user.mention} {get; success}}
 {if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel}
 >>>{get; porterver}<<<
+{set; invokerchannelid; {channel.id}}
+{set; invokermessageid; {message.id}}
+{channel.send; {user.tag} called for {get;subject2} help in {get; subject} https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}
+}
